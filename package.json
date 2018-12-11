@@ -1,0 +1,20 @@
+{
+  "name": "aflapi",
+  "version": "1.0.0",
+  "description": "player and teams api for the AFL 2019",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "afl",
+    "players",
+    "teams"
+  ],
+  "author": "James and Reese",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.15"
+  }
+}
