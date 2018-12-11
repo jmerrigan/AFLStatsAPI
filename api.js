@@ -12,28 +12,28 @@ mongoose.connection.on('error', () => {
     console.log('failed to connect to mongod');
   });
 
-const Team = require("./models/Team");
+const Player = require("./models/Player");
 
 const app = express();
 const port = 5000;
 
 app.use(express.json());
 
-app.get('/teams', (req, res) => {
-  Team.find({})
+app.get('/players', (req, res) => {
+  Player.find({})
     .then(doc => res.send(doc));
 })
 
-app.get('/teams/:name', (req, res) => {
+app.get('/players/:name', (req, res) => {
   const {name} = req.params;
-  Team.findOne({name})
+  Player.findOne({name})
     .then(doc => res.send(doc));
 })
 
-app.post('/teams', (req, res) => {
+app.post('/players', (req, res) => {
   // create a new team
   const { name, location, logo, home_ground } = req.body;
-  const team = new Team({
+  const player = new Player({
     name,
     location,
     logo,
@@ -43,10 +43,10 @@ app.post('/teams', (req, res) => {
     .then(doc => res.send(doc));
 });
 
-app.delete('/team/:name', (req, res) => {
+app.delete('/player/:name', (req, res) => {
   // remove specific team
   const { name } = req.params;
-  Pokemon.findOneAndRemove({ name })
+  Player.findOneAndRemove({ name })
     .then(doc => res.send(doc));
 });
 
