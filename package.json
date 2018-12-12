@@ -4,7 +4,7 @@
   "description": "player and teams api for the AFL 2019",
   "main": "api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon api.js"
   },
   "keywords": [
     "afl",
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "mongoose": "^5.3.15"
+    "mongoose": "^5.3.15",
+    "nodemon": "^1.18.8"
   }
 }

@@ -19,34 +19,63 @@ const port = 5000;
 
 app.use(express.json());
 
+// app.get('/teams', (req, res) => {
+//   Player.find
+// })
+
 app.get('/players', (req, res) => {
   Player.find({})
     .then(doc => res.send(doc));
 })
 
-app.get('/players/:name', (req, res) => {
-  const {name} = req.params;
-  Player.findOne({name})
+app.get('/players/:id', (req, res) => { 
+  const {id} = req.params;
+  console.log(id)
+  Player.findById({_id: id})
     .then(doc => res.send(doc));
 })
 
 app.post('/players', (req, res) => {
   // create a new team
-  const { name, location, logo, home_ground } = req.body;
+  const { player_id,
+    afl_id,
+    first_name,
+    last_name,
+    afl_team,
+    list_status,
+    afl_number,
+    dob,
+    height,
+    weight,
+    jt_state,
+    junior_team,
+    afl_games,
+    afl_goals } = req.body;
+
   const player = new Player({
-    name,
-    location,
-    logo,
-    home_ground
+    player_id,
+    afl_id,
+    first_name,
+    last_name,
+    afl_team,
+    list_status,
+    afl_number,
+    dob,
+    height,
+    weight,
+    jt_state,
+    junior_team,
+    afl_games,
+    afl_goals
   });
-  team.save()
+  player.save()
     .then(doc => res.send(doc));
 });
 
-app.delete('/player/:name', (req, res) => {
-  // remove specific team
-  const { name } = req.params;
-  Player.findOneAndRemove({ name })
+app.delete('/players/:id', (req, res) => {
+  // remove specific player
+  const { id } = req.params;
+  Player.findOneAndRemove({ _id: id })
     .then(doc => res.send(doc));
 });
 

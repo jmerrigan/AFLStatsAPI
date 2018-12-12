@@ -1,20 +1,20 @@
 const mongoose = require('mongoose');
 
 const playerSchema = new mongoose.Schema({
-    player_id: String,
-    afl_id: String,
+    player_id: Number,
+    afl_id: Number,
     first_name: String,
     last_name: String,
     afl_team: String,
     list_status: String,
-    afl_number: String,
+    afl_number: Number,
     dob: String,
-    height: String,
-    weight: String,
+    height: Number,
+    weight: Number,
     jt_state: String,
     junior_team: String,
-    afl_games: String,
-    afl_goals: String
+    afl_games: Number,
+    afl_goals: Number
 });
 
 module.exports = mongoose.model('Player', playerSchema);
